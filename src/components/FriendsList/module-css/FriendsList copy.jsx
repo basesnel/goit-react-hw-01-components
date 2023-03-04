@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import { FriendsList } from './FriendList.styled';
+import css from './FriendsList.module.css';
 import FriendsListItem from 'components/FriendsListItem/FriendsListItem';
 
-export default function Friends(props) {
+export default function FriendsList(props) {
   const friends = props.friends;
   const friendslist = friends.map(friend => (
     <FriendsListItem
@@ -12,10 +12,10 @@ export default function Friends(props) {
       name={friend.name}
     />
   ));
-  return <FriendsList>{friendslist}</FriendsList>;
+  return <ul className={css.friendslist}>{friendslist}</ul>;
 }
 
-Friends.propTypes = {
+FriendsList.propTypes = {
   friends: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,

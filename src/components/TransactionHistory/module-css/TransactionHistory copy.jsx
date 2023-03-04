@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { TransactionsTable } from './TransactionHistory.styled';
+import css from './TransactionHistory.module.css';
 import TransactionItem from 'components/TransactionItem/TransactionItem';
 
 // console.log(transactions);
@@ -17,7 +17,7 @@ export default function TransactionHistory(props) {
     )
   );
   return (
-    <TransactionsTable>
+    <table className={css.transactionhistory}>
       <thead>
         <tr>
           <th>{props.type}</th>
@@ -27,7 +27,7 @@ export default function TransactionHistory(props) {
       </thead>
 
       <tbody>{transactionsList}</tbody>
-    </TransactionsTable>
+    </table>
   );
 }
 

@@ -1,34 +1,43 @@
 import PropTypes from 'prop-types';
-import css from './Profile.module.css';
+import {
+  UserProfile,
+  Description,
+  Avatar,
+  UserName,
+  Tag,
+  Location,
+  Stats,
+  StatsItem,
+  Label,
+  Quantity,
+} from './Profile.styled';
 import numberwithcommas from '../../utils/numberwithcommas';
 
 export default function Profile({ avatar, username, tag, location, stats }) {
   return (
-    <div className={css.profile}>
-      <div className={css.description}>
-        <img src={avatar} alt="User avatar" className={css.avatar} />
-        <p className={css.name}>{username}</p>
-        <p className={css.tag}>@{tag}</p>
-        <p className={css.location}>{location}</p>
-      </div>
+    <UserProfile>
+      <Description>
+        <Avatar src={avatar} alt="User avatar" />
+        <UserName>{username}</UserName>
+        <Tag>@{tag}</Tag>
+        <Location>{location}</Location>
+      </Description>
 
-      <ul className={css.stats}>
-        <li className={css.item}>
-          <span className={css.label}>Followers</span>
-          <span className={css.quantity}>
-            {numberwithcommas(stats.followers)}
-          </span>
-        </li>
-        <li className={css.item}>
-          <span className={css.label}>Views</span>
-          <span className={css.quantity}>{numberwithcommas(stats.views)}</span>
-        </li>
-        <li className={css.item}>
-          <span className={css.label}>Likes</span>
-          <span className={css.quantity}>{numberwithcommas(stats.likes)}</span>
-        </li>
-      </ul>
-    </div>
+      <Stats>
+        <StatsItem>
+          <Label>Followers</Label>
+          <Quantity>{numberwithcommas(stats.followers)}</Quantity>
+        </StatsItem>
+        <StatsItem>
+          <Label>Views</Label>
+          <Quantity>{numberwithcommas(stats.views)}</Quantity>
+        </StatsItem>
+        <StatsItem>
+          <Label>Likes</Label>
+          <Quantity>{numberwithcommas(stats.likes)}</Quantity>
+        </StatsItem>
+      </Stats>
+    </UserProfile>
   );
 }
 

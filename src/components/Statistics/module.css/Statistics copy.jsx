@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { StatSection, StatTitle, StatList } from './Statistics.styled';
+import css from './Statistics.module.css';
 import StatisticsListItem from 'components/StatisticsListItem/StatisticsListItem';
 
 export default function Statistics({ title, stats }) {
@@ -11,15 +11,15 @@ export default function Statistics({ title, stats }) {
     />
   ));
   return (
-    <StatSection>
-      {title && <StatTitle>{title}</StatTitle>}
-      <StatList>{statistics}</StatList>
-    </StatSection>
+    <section className={css.statistics}>
+      <h2 className={css.title}>{title}</h2>
+      <ul className={css.statlist}>{statistics}</ul>
+    </section>
   );
 }
 
 Statistics.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   stats: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,

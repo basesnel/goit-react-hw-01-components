@@ -6,22 +6,14 @@ import transactions from '../data/transactions.json';
 import PageTitle from './PageTitle/PageTitle';
 import Profile from './Profile/Profile';
 import Statistics from './Statistics/Statistics';
-import FriendsList from './FriendsList/FriendsList';
+import Friends from './FriendsList/FriendsList';
 import TransactionHistory from './TransactionHistory/TransactionHistory';
+
+import { Container } from './Container.styled';
 
 export const App = () => {
   return (
-    <div
-      style={{
-        // height: '100vh',
-        // display: 'flex',
-        // justifyContent: 'center',
-        // alignItems: 'center',
-        padding: 20,
-        fontSize: 40,
-        color: '#202020',
-      }}
-    >
+    <Container>
       <PageTitle title="User profile" />
 
       <Profile
@@ -34,7 +26,7 @@ export const App = () => {
 
       <Statistics title="Upload stats" stats={stats} />
 
-      <FriendsList friends={friends} />
+      <Friends friends={friends} />
 
       <TransactionHistory
         type="Type"
@@ -42,6 +34,6 @@ export const App = () => {
         currency="Currency"
         transactions={transactions}
       />
-    </div>
+    </Container>
   );
 };
